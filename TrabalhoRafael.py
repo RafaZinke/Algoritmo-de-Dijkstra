@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import simpledialog
 import networkx as nx
 
+
 def create_graph():
     G = nx.Graph()
     G.add_edge('Rio do Sul', 'Presidente Getulio', weight=66)
@@ -24,14 +25,14 @@ def main():
     graph = create_graph()
 
     while True:
-        start = simpledialog.askstring("Input", "Enter start city:", parent=root)
-        end = simpledialog.askstring("Input", "Enter end city:", parent=root)
+        start = simpledialog.askstring("Input", "Diga a cidade Inicial:", parent=root)
+        end = simpledialog.askstring("Input", "Diga a cidade final:", parent=root)
         path, cost = calculate_path(graph, start, end)
         
-        result_text = f"The shortest path from {start} to {end} is {path} with a cost of {cost}."
-        tk.messagebox.showinfo("Result", result_text)
+        result_text = f"O caminho mais curto {start} para {end} é {path} Com um custo de: {cost}."
+        tk.messagebox.showinfo("Resultado:", result_text)
         
-        answer = tk.messagebox.askyesno("Query", "Do you want to calculate another path?")
+        answer = tk.messagebox.askyesno("Query", "Quer calcular outro Caminho?")
         if not answer:
             break
 
