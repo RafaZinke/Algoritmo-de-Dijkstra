@@ -5,37 +5,34 @@ import networkx as nx
 
 def criaGrafo():
     G = nx.Graph()
-    G.add_edge('Rio do Sul', 'Presidente Getulio', weight=66)
-    G.add_edge('Rio do Sul', 'Ibirama', weight=22.5)
-    G.add_edge('Rio do Sul', 'Agronomica', weight=17.6)
-    G.add_edge('Rio do Sul', 'Lontras', weight=66)
-    G.add_edge('Rio do Sul', 'Laurentino', weight=30)
-    G.add_edge('Rio do Sul', 'Aurora', weight=20)
-    G.add_edge('Presidente Getulio', 'Laurentino', weight=11)
-    G.add_edge('Presidente Getulio', 'Lontras', weight=60)
-    G.add_edge('Presidente Getulio', 'Taio', weight=70)
-    G.add_edge('Presidente Getulio', 'Rio do Oeste', weight=45)
-    G.add_edge('Lontras', 'Agronomica', weight=22.5)
-    G.add_edge('Lontras', 'Taio', weight=20)
-    G.add_edge('Lontras', 'Rio do Oeste', weight=45)
-    G.add_edge('Ibirama', 'Aurora', weight=75)
-    G.add_edge('Ibirama', 'Agronomica', weight=176)
-    G.add_edge('Ibirama', 'Salete', weight=22)
-    G.add_edge('Aurora', 'Anta Gorda', weight=44)
-    G.add_edge('Aurora', 'Braço de Trambudo', weight=40)
-    G.add_edge('Laurentino', 'Pouso Redondo', weight=7.5)
-    G.add_edge('Itaqua', 'Taio', weight=40)
-    G.add_edge('Itaqua', 'Dalbergia', weight=45)
-    G.add_edge('Ituporanga', 'Salete', weight=45)
-    
-
-
-    
-    
+    G.add_edge('rio do sul', 'presidente getulio', weight=66)
+    G.add_edge('rio do sul', 'ibirama', weight=22.5)
+    G.add_edge('rio do sul', 'agronomica', weight=17.6)
+    G.add_edge('rio do sul', 'lontras', weight=66)
+    G.add_edge('rio do sul', 'laurentino', weight=30)
+    G.add_edge('rio do sul', 'aurora', weight=20)
+    G.add_edge('presidente getulio', 'laurentino', weight=11)
+    G.add_edge('presidente getulio', 'lontras', weight=60)
+    G.add_edge('presidente getulio', 'taio', weight=70)
+    G.add_edge('presidente getulio', 'rio do oeste', weight=45)
+    G.add_edge('lontras', 'agronomica', weight=22.5)
+    G.add_edge('lontras', 'taio', weight=20)
+    G.add_edge('lontras', 'rio do oeste', weight=45)
+    G.add_edge('ibirama', 'aurora', weight=75)
+    G.add_edge('ibirama', 'agronomica', weight=176)
+    G.add_edge('ibirama', 'salete', weight=22)
+    G.add_edge('aurora', 'anta gorda', weight=44)
+    G.add_edge('aurora', 'braço do trambudo', weight=40)
+    G.add_edge('laurentino', 'pouso redondo', weight=7.5)
+    G.add_edge('itaqua', 'taio', weight=40)
+    G.add_edge('itaqua', 'dalbergia', weight=45)
+    G.add_edge('ituporanga', 'salete', weight=45)
 
     return G
 
 def calculaCaminho(graph, start, end):
+    start = start.lower()  
+    end = end.lower() 
     path = nx.dijkstra_path(graph, source=start, target=end, weight='weight')
     cost = nx.dijkstra_path_length(graph, source=start, target=end, weight='weight')
     return path, cost
