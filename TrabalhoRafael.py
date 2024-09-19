@@ -11,7 +11,27 @@ def criaGrafo():
     G.add_edge('Rio do Sul', 'Lontras', weight=66)
     G.add_edge('Rio do Sul', 'Laurentino', weight=30)
     G.add_edge('Rio do Sul', 'Aurora', weight=20)
+    G.add_edge('Presidente Getulio', 'Laurentino', weight=11)
+    G.add_edge('Presidente Getulio', 'Lontras', weight=60)
+    G.add_edge('Presidente Getulio', 'Taio', weight=70)
+    G.add_edge('Presidente Getulio', 'Rio do Oeste', weight=45)
+    G.add_edge('Lontras', 'Agronomica', weight=22.5)
+    G.add_edge('Lontras', 'Taio', weight=20)
+    G.add_edge('Lontras', 'Rio do Oeste', weight=45)
+    G.add_edge('Ibirama', 'Aurora', weight=75)
+    G.add_edge('Ibirama', 'Agronomica', weight=176)
+    G.add_edge('Ibirama', 'Salete', weight=22)
     G.add_edge('Aurora', 'Anta Gorda', weight=44)
+    G.add_edge('Aurora', 'Braço de Trambudo', weight=40)
+    G.add_edge('Laurentino', 'Pouso Redondo', weight=7.5)
+    G.add_edge('Itaqua', 'Taio', weight=40)
+    G.add_edge('Itaqua', 'Dalbergia', weight=45)
+    G.add_edge('Ituporanga', 'Salete', weight=45)
+    
+
+
+    
+    
 
     return G
 
