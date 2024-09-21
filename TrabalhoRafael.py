@@ -35,9 +35,9 @@ def criaGrafo():
 def calculaCaminho(graph, Comeco, fim):
     Comeco = Comeco.lower()  
     fim = fim.lower() 
-    caminho = nx.dijkstra_caminho(graph, source=Comeco, target=fim, weight='weight')
-    cost = nx.dijkstra_caminho_length(graph, source=Comeco, target=fim, weight='weight')
-    return caminho, cost
+    caminho = nx.shortest_path(graph, source=Comeco, target=fim, weight='weight')
+    custo = nx.shortest_path_length(graph, source=Comeco, target=fim, weight='weight')
+    return caminho, custo
 
 def main():
     root = tk.Tk()
@@ -46,12 +46,12 @@ def main():
     while True:
         Comeco = simpledialog.askstring("envio", "Diga a cidade Inicial:", parent=root)
         fim = simpledialog.askstring("envio", "Diga a cidade final:", parent=root)
-        caminho, cost = calculaCaminho(graph, Comeco, fim)
+        caminho, custo = calculaCaminho(graph, Comeco, fim)
         
-        resultado = f"O caminho mais curto {Comeco} para {fim} é {caminho} Com um custo de: {cost}."
+        resultado = f"O caminho mais curto {Comeco} para {fim} é {caminho} Com um custo de: {custo}."
         tk.messagebox.showinfo("Resultado:", resultado)
         
-        resposta = tk.messagebox.askyesno("Query", "Quer calcular outro Caminho?")
+        resposta = tk.messagebox.askyesno("cam", "Quer calcular outro Caminho?")
         if not resposta:
             break
 
