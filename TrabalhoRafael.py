@@ -27,30 +27,32 @@ def criaGrafo():
     G.add_edge('itaqua', 'taio', weight=40)
     G.add_edge('itaqua', 'dalbergia', weight=45)
     G.add_edge('ituporanga', 'salete', weight=45)
+    
+    
 
     return G
 
-def calculaCaminho(graph, start, end):
-    start = start.lower()  
-    end = end.lower() 
-    path = nx.dijkstra_path(graph, source=start, target=end, weight='weight')
-    cost = nx.dijkstra_path_length(graph, source=start, target=end, weight='weight')
-    return path, cost
+def calculaCaminho(graph, Comeco, fim):
+    Comeco = Comeco.lower()  
+    fim = fim.lower() 
+    caminho = nx.dijkstra_caminho(graph, source=Comeco, target=fim, weight='weight')
+    cost = nx.dijkstra_caminho_length(graph, source=Comeco, target=fim, weight='weight')
+    return caminho, cost
 
 def main():
     root = tk.Tk()
     graph = criaGrafo()
 
     while True:
-        start = simpledialog.askstring("Input", "Diga a cidade Inicial:", parent=root)
-        end = simpledialog.askstring("Input", "Diga a cidade final:", parent=root)
-        path, cost = calculaCaminho(graph, start, end)
+        Comeco = simpledialog.askstring("envio", "Diga a cidade Inicial:", parent=root)
+        fim = simpledialog.askstring("envio", "Diga a cidade final:", parent=root)
+        caminho, cost = calculaCaminho(graph, Comeco, fim)
         
-        result_text = f"O caminho mais curto {start} para {end} é {path} Com um custo de: {cost}."
-        tk.messagebox.showinfo("Resultado:", result_text)
+        resultado = f"O caminho mais curto {Comeco} para {fim} é {caminho} Com um custo de: {cost}."
+        tk.messagebox.showinfo("Resultado:", resultado)
         
-        answer = tk.messagebox.askyesno("Query", "Quer calcular outro Caminho?")
-        if not answer:
+        resposta = tk.messagebox.askyesno("Query", "Quer calcular outro Caminho?")
+        if not resposta:
             break
 
     root.mainloop()
