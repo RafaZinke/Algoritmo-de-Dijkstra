@@ -48,9 +48,9 @@ def main():
 
     while True:
         start = simpledialog.askstring("Input", "Diga a cidade Inicial:", parent=root)
-        start = verificaCidade(graph, start)  
+        start = verificaCidade(graph, start)  # Verifica se a cidade inicial é válida
         end = simpledialog.askstring("Input", "Diga a cidade final:", parent=root)
-        end = verificaCidade(graph, end)  
+        end = verificaCidade(graph, end)  # Verifica se a cidade final é válida
         
         path, cost = calculaCaminho(graph, start, end)
         caminho_lista = ' --> '.join(path)
