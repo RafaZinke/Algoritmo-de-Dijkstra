@@ -43,14 +43,14 @@ def calculaCaminho(graph, start, end):
 
 def main():
     root = tk.Tk()
-    root.withdraw()  # Oculta a janela principal
+    root.withdraw()  
     graph = criaGrafo()
 
     while True:
         start = simpledialog.askstring("Input", "Diga a cidade Inicial:", parent=root)
-        start = verificaCidade(graph, start)  # Verifica se a cidade inicial é válida
+        start = verificaCidade(graph, start)  
         end = simpledialog.askstring("Input", "Diga a cidade final:", parent=root)
-        end = verificaCidade(graph, end)  # Verifica se a cidade final é válida
+        end = verificaCidade(graph, end)  
         
         path, cost = calculaCaminho(graph, start, end)
         caminho_lista = ' --> '.join(path)
